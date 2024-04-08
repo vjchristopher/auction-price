@@ -49,7 +49,7 @@ pd.options.plotting.backend = "plotly"
 @st.cache_data
 
 def load_data():
-    df=pd.read_csv(r'C:\Users\vjchr\code\combined_file_RP_WP_cols_ordered.csv')
+    df=pd.read_csv(r'combined_file_RP_WP_cols_ordered.csv')
     return df
   
 def read_lsa():
