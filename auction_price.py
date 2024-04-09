@@ -13,8 +13,8 @@ import matplotlib.pyplot as plt
 #---------------------------------#
 # Title
 st.set_page_config(layout="wide")
-
-st.title('Reserve Price and Winning Price in various auctions in tabular and graphic form - Press "Submit":')
+st.markdown("***Best Viewed on Laptops and Desktops***.")
+st.title('Reserve Price and Winning Price in various auctions in tabular and graphic form - Press "Submit" button in the Sidebar Panel:')
 # st.markdown("""
 # -------------------------------------------            
 # """)
@@ -68,7 +68,10 @@ def process_df(df):
     df=df.set_index('service_area')      
     df=df.apply(pd.to_numeric)
     return(df)
-
+  
+def write_text(txt):
+    st.write(txt)
+  
 def plot_df(data):
      fig1=px.line(data,markers=True,line_shape=None,template=None,title='Reserve Price and Winning Price in auctions')
      fig1.update_layout(
@@ -133,9 +136,15 @@ if submitted: #The submit button has been pressed.
     st.subheader('"-1" indicates none was taken though spectrum was available',divider='blue')
     
     st.dataframe(df3)
+    txt_out2='1.Spectrum Prices are all in Rs. Crores and it is per Block.'
+    txt_out3='2.The Block Size differs from auction to auction.'
+    txt_out4='3.The nomenclature-1: RP_2100_2010: Reserve Price for 2100 MHz in the 2010 Auction'
+    txt_out5='4.The nomenclature-2: WP_26_2022: Winning Price for 26 GHz in the 2022 Auction'
+    txt_out6='1.The Charts are plotted after the Block sizes are normalised for same freq bands from different auctions'
+    
     st.subheader('',divider='blue')
     plot_df(df3) 
-        
+    write_text(txt_out6)    
     
 #st.write("Outside the form")
 
