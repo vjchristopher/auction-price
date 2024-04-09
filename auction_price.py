@@ -136,14 +136,20 @@ if submitted: #The submit button has been pressed.
     st.subheader('"-1" indicates none was taken though spectrum was available',divider='blue')
     
     st.dataframe(df3)
+    #write the footnotes of explanantion
     txt_out2='1.Spectrum Prices are all in Rs. Crores and it is per Block.'
     txt_out3='2.The Block Size differs from auction to auction.'
     txt_out4='3.The nomenclature-1: RP_2100_2010: Reserve Price for 2100 MHz in the 2010 Auction'
     txt_out5='4.The nomenclature-2: WP_26_2022: Winning Price for 26 GHz in the 2022 Auction'
     txt_out6='1.The Charts are plotted after the Block sizes are normalised for same freq bands from different auctions'
-    
+    write_text(txt_out2)
+    write_text(txt_out3)
+    write_text(txt_out4)
+    write_text(txt_out5) 
     st.subheader('',divider='blue')
+    #plot the charts
     plot_df(df3) 
+    #footnote to the chart
     write_text(txt_out6)    
     
 #st.write("Outside the form")
